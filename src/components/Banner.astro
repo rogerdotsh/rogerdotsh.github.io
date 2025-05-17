@@ -1,0 +1,151 @@
+---
+
+---
+
+<div class="banner">
+    <div class="left">
+        <div class="nome">
+            <h1 class="hover">Rogerio</h1>
+            <p class="sobrenome">DA SILVA DOMINGUES</p>
+            <h1 class="hover">Júnior</h1>
+            <div class="nome-links">
+                <a>Meu currículo</a>
+                <a>Vamos conversar</a>
+            </div>
+        </div>
+        <div class="cubo">
+            <div class="face frente"></div>
+            <div class="face verso"></div>
+            <div class="face direita"></div>
+            <div class="face esquerda"></div>
+            <div class="face topo"></div>
+            <div class="face baixo"></div>
+        </div>
+    </div>
+    <div class="descricao">
+        <p class="frase"></p>
+    </div>
+</div>
+
+<!-- styling -->
+<style>
+    .banner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--space-s);
+        overflow: hidden;
+        max-height: 20rem;
+    }
+
+    .banner * {
+        line-height: 1;
+    }
+
+    .hover {
+        transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .banner .hover:hover {
+        -webkit-text-stroke: 1px var(--text);
+        color: transparent;
+    }
+    .nome {
+        user-select: none;
+    }
+
+    .sobrenome {
+        display: inline;
+        mix-blend-mode: normal;
+        font-family: "IBM Plex Mono";
+        background-color: var(--accent);
+        text-shadow: 3px 3px var(--background);
+        letter-spacing: 0.5rem;
+    }
+
+    .left {
+        display: flex;
+        align-items: center;
+    }
+
+    .cubo {
+        --tamanho-cubo: 250px;
+
+        width: var(--tamanho-cubo);
+        height: var(--tamanho-cubo);
+        position: relative;
+        top: 0;
+        left: 0;
+        transform-style: preserve-3d;
+        transform-origin: center center;
+        animation: cuboRotate 5s infinite linear;
+    }
+
+    .face {
+        position: absolute;
+        width: var(--tamanho-cubo);
+        height: var(--tamanho-cubo);
+        border: 2px solid var(--text);
+        text-align: center;
+        font-weight: bold;
+        color: white;
+        font-family: sans-serif;
+    }
+
+    .frente {
+        transform: translateZ(calc(var(--tamanho-cubo) / 2));
+    }
+    .verso {
+        transform: rotateY(180deg) translateZ(calc(var(--tamanho-cubo) / 2));
+    }
+    .direita {
+        transform: rotateY(90deg) translateZ(calc(var(--tamanho-cubo) / 2));
+    }
+    .esquerda {
+        transform: rotateY(-90deg) translateZ(calc(var(--tamanho-cubo) / 2));
+    }
+    .topo {
+        transform: rotateX(90deg) translateZ(calc(var(--tamanho-cubo) / 2));
+    }
+    .baixo {
+        transform: rotateX(-90deg) translateZ(calc(var(--tamanho-cubo) / 2));
+    }
+
+    @keyframes cuboRotate {
+        0% {
+            transform: rotateX(0deg) rotateY(-12.5deg);
+        }
+        100% {
+            transform: rotateX(360deg) rotateY(-12.5deg);
+        }
+    }
+
+    .frase::after {
+        content: "_";
+        animation: fraseBlinking 0.45s infinite alternate steps(2);
+        color: var(--text);
+    }
+
+    @keyframes fraseBlinking {
+        0% {
+            color: transparent;
+        }
+    }
+
+    .nome-links {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: left;
+    }
+    .nome-links a {
+        border: solid 1px var(--text);
+        padding: 1rem;
+        margin-inline: 1rem;
+    }
+
+    .nome-links a:hover {
+        text-decoration: none;
+        background-color: var(--text);
+        color: var(--background);
+    }
+</style>

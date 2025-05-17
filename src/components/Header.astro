@@ -1,0 +1,35 @@
+---
+
+---
+
+<header>
+    <div class="buttons">
+        <a href="#">header</a>
+        <a href="#">placeholder</a>
+        <a href="#">another placeholder</a>
+    </div>
+</header>
+<!-- styling -->
+<style>
+    header {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 2px solid var(--text);
+    }
+    .buttons {
+        display: flex;
+    }
+
+    .buttons a {
+        display: block;
+        padding: var(--space-xs);
+        text-align: center;
+        border-inline: 1px solid var(--text);
+    }
+
+    .buttons a:hover {
+        background-color: var(--text);
+        color: var(--background);
+        transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+</style>
